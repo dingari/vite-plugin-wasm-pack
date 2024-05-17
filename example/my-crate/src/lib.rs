@@ -19,7 +19,13 @@ extern "C" {
     fn alert(s: &str);
 }
 
+#[wasm_bindgen(module="/demo.js")]
+extern "C" {
+    fn demo(msg: &str);
+}
+
 #[wasm_bindgen]
 pub fn greet(name: &str) {
     alert(&format!("Hello,{}!", name));
+    demo(&format!("Hello,{}!", name));
 }
